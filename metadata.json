@@ -1,0 +1,8 @@
+{
+  "name": "Melhor Aquecedor",
+  "description": "Landing page moderna e profissional para serviços de aquecedores a gás, oferecendo instalação, manutenção e assistência técnica com foco em qualidade e segurança.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
