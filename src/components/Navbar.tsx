@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X, Flame } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { COMPANY_NAME, COMPANY_PHONE } from "../constants";
-import logo from "../asets/aquecedor-certo-logo.png";
+import logo from "../assets/aquecedor-certo-logo.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

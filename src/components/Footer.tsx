@@ -1,6 +1,6 @@
 import { Flame, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { COMPANY_NAME, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS } from "../constants";
-import logo from "../asets/aquecedor-certo-logo.png";
+import logo from "../assets/aquecedor-certo-logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
