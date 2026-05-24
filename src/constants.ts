@@ -41,6 +41,18 @@ export const SERVICES = [
     description: "Verificação completa de vazamentos e condições de exaustão para sua tranquilidade.",
     icon: "CheckCircle",
   },
+  {
+    id: "gas",
+    title: "Sistemas de Gás",
+    description: "Projetos, instalação e manutenção de sistemas de gás residenciais e comerciais seguindo as normas NBR 13103/15526. Garantia de segurança, economia e tranquilidade para seu imóvel.",
+    icon: "Fuel",
+  },
+  {
+    id: "bombas",
+    title: "Bombas e Pressurizadores",
+    description: "Instalação e manutenção de bombas d'água pressurizadas e pressurizadores. Manutenção de qualidade para o sistema de bombeamento do seu condomínio!",
+    icon: "Droplets",
+  },
 ];
 
 export const TESTIMONIALS = [

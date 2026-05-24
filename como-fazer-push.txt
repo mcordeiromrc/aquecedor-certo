@@ -1,0 +1,37 @@
+PASSO A PASSO PARA FAZER PUSH (ENVIAR) PARA O GITHUB
+====================================================
+
+1. Abra o terminal no diretório do projeto:
+   cd C:\Users\User\Documents\WebProjects\aquecedor-certo
+
+2. Veja o status dos arquivos alterados:
+   git status
+
+3. Adicione os arquivos que deseja enviar:
+   git add .
+   (o ponto "." adiciona todos os arquivos alterados)
+
+   Para adicionar apenas um arquivo específico:
+   git add src/components/Hero.tsx
+
+4. Crie um commit com uma mensagem descritiva:
+   git commit -m "Descrição do que foi alterado"
+
+5. Envie para o GitHub:
+   git push origin main
+
+   Se pedir login/senha, use seu usuário e senha do GitHub
+   (ou Personal Access Token)
+
+----------------------------------------------------
+RESUMO (comandos rápidos):
+   git status
+   git add .
+   git commit -m "sua mensagem aqui"
+   git push origin main
+----------------------------------------------------
+
+DICAS:
+- Sempre execute `git status` antes para ver o que vai ser enviado
+- Escreva mensagens de commit claras e curtas
+- Se houver conflitos, avise o desenvolvedor

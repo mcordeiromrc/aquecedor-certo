@@ -1,4 +1,4 @@
-import { Wrench, ShieldCheck, Flame, ShoppingCart, Settings, CheckCircle, ChevronRight } from "lucide-react";
+import { Wrench, ShieldCheck, Flame, ShoppingCart, Settings, CheckCircle, Fuel, Droplets, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { SERVICES } from "../constants";
 
@@ -9,6 +9,8 @@ const iconMap = {
   ShoppingCart: ShoppingCart,
   Settings: Settings,
   CheckCircle: CheckCircle,
+  Fuel: Fuel,
+  Droplets: Droplets,
 };
 
 export default function Services() {
@@ -20,7 +22,7 @@ export default function Services() {
             Nossas Especialidades
           </h2>
           <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 font-display">
-            Tudo o que seu Aquecedor Precisa
+            Soluções Completas para Sua Casa
           </h3>
           <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
             Oferecemos uma gama completa de serviços para garantir que você nunca fique sem água quente. Segurança e eficiência em primeiro lugar.
