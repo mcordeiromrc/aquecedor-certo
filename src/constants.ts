@@ -1,8 +1,9 @@
 export const COMPANY_NAME = "AquecedorCerto";
-export const COMPANY_PHONE = "+55 (11) 96291-5466";
-export const COMPANY_PHONE_RAW = "5511962915466";
+export const COMPANY_PHONE_1 = "(11) 94072-6941";
+export const COMPANY_PHONE_2 = "(11) 94511-9482";
+export const COMPANY_PHONE_RAW_1 = "5511940726941";
+export const COMPANY_PHONE_RAW_2 = "5511945119482";
 export const COMPANY_EMAIL = "contato@aquecedorcerto.com.br";
-export const COMPANY_ADDRESS = "Rua dos Aquecedores, 123 - São Paulo, SP";
 
 export const SERVICES = [
   {
@@ -84,7 +85,7 @@ export const FAQS = [
   },
   {
     question: "É cobrada taxa de visita?",
-    answer: "Não! Na Melhor Aquecedor, não cobramos taxa de visita para orçamentos na nossa área de cobertura principal.",
+    answer: "Não! Na Aquecedor Certo, não cobramos taxa de visita para orçamentos na nossa área de cobertura principal.",
   },
   {
     question: "Quais marcas vocês trabalham?",

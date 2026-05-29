@@ -1,24 +1,41 @@
 import { useState } from "react";
-import { Send, Phone, Mail, MapPin, CheckCircle } from "lucide-react";
+import { Send, Phone, Mail, CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS } from "../constants";
+import { COMPANY_EMAIL, COMPANY_PHONE_1, COMPANY_PHONE_2, COMPANY_PHONE_RAW_1, COMPANY_PHONE_RAW_2 } from "../constants";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("/send-email.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        throw new Error(data.message || "Erro ao enviar mensagem");
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      form.reset();
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      setIsSubmitting(false);
+      setError(err instanceof Error ? err.message : "Erro ao enviar mensagem");
+    }
   };
 
   return (
@@ -43,7 +60,8 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Telefone / WhatsApp</p>
-                  <p className="text-xl font-bold text-slate-900">{COMPANY_PHONE}</p>
+                  <a href={`https://wa.me/${COMPANY_PHONE_RAW_1}`} target="_blank" rel="noopener noreferrer" className="block text-xl font-bold text-slate-900 hover:text-orange-500 transition-colors">{COMPANY_PHONE_1}</a>
+                  <a href={`https://wa.me/${COMPANY_PHONE_RAW_2}`} target="_blank" rel="noopener noreferrer" className="block text-xl font-bold text-slate-900 hover:text-orange-500 transition-colors">{COMPANY_PHONE_2}</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -53,15 +71,6 @@ export default function ContactForm() {
                 <div>
                   <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">E-mail</p>
                   <p className="text-xl font-bold text-slate-900">{COMPANY_EMAIL}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-orange-500 border border-slate-100">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Endereço</p>
-                  <p className="text-lg font-bold text-slate-900">{COMPANY_ADDRESS}</p>
                 </div>
               </div>
             </div>
@@ -84,6 +93,7 @@ export default function ContactForm() {
                       <input
                         required
                         type="text"
+                        name="name"
                         placeholder="Seu nome"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                       />
@@ -93,6 +103,7 @@ export default function ContactForm() {
                       <input
                         required
                         type="tel"
+                        name="phone"
                         placeholder="(11) 99999-9999"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                       />
@@ -103,6 +114,7 @@ export default function ContactForm() {
                     <input
                       required
                       type="email"
+                      name="email"
                       placeholder="exemplo@email.com"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                     />
@@ -111,6 +123,7 @@ export default function ContactForm() {
                     <label className="text-sm font-bold text-slate-700 ml-1">Mensagem</label>
                     <textarea
                       required
+                      name="message"
                       rows={4}
                       placeholder="Como podemos te ajudar?"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all resize-none"
@@ -129,6 +142,9 @@ export default function ContactForm() {
                       </>
                     )}
                   </button>
+                  {error && (
+                    <p className="text-red-500 text-sm text-center">{error}</p>
+                  )}
                 </motion.form>
               ) : (
                 <motion.div

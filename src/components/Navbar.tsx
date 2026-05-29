@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X, Flame } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { COMPANY_NAME, COMPANY_PHONE } from "../constants";
-import logo from "../assets/aquecedor-certo-logo.png";
+import { COMPANY_NAME, COMPANY_PHONE_1, COMPANY_PHONE_2, COMPANY_PHONE_RAW_1, COMPANY_PHONE_RAW_2 } from "../constants";
+import logo from "../assets/logoAquecedor.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,11 +50,22 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href={`tel:${COMPANY_PHONE}`}
+            href={`https://wa.me/${COMPANY_PHONE_RAW_1}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-500 transition-colors"
           >
             <Phone size={16} />
-            {COMPANY_PHONE}
+            {COMPANY_PHONE_1}
+          </a>
+          <a
+            href={`https://wa.me/${COMPANY_PHONE_RAW_2}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-500 transition-colors"
+          >
+            <Phone size={16} />
+            {COMPANY_PHONE_2}
           </a>
         </div>
 
@@ -88,11 +99,13 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href={`tel:${COMPANY_PHONE}`}
+                href={`https://wa.me/${COMPANY_PHONE_RAW_1}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-orange-500 text-white p-3 rounded-xl font-bold mt-2"
               >
                 <Phone size={18} />
-                Ligar Agora
+                WhatsApp
               </a>
             </div>
           </motion.div>

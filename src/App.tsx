@@ -11,7 +11,7 @@ import About from "./components/About";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import ContactForm from "./components/ContactForm";
-import Map from "./components/Map";
+
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -27,7 +27,6 @@ export default function App() {
         <Testimonials />
         <FAQ />
         <ContactForm />
-        <Map />
       </main>
       <Footer />
       <WhatsAppButton />

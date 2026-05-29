@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
-import { COMPANY_PHONE_RAW } from "../constants";
+import { COMPANY_PHONE_RAW_1 } from "../constants";
 import aquecedoresImg from "../assets/aquecedores.png";
 import installAqueceImg from "../assets/install_aquece.png";
 import gasistaServicoImg from "../assets/gasista-servico1.jpg";
@@ -135,7 +135,7 @@ export default function Hero() {
                 <ChevronRight size={20} />
               </a>
               <a
-                href={`https://wa.me/${COMPANY_PHONE_RAW}`}
+                href={`https://wa.me/${COMPANY_PHONE_RAW_1}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white text-slate-800 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-orange-500 transition-all"

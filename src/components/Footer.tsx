@@ -1,6 +1,6 @@
 import { Flame, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import { COMPANY_NAME, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS } from "../constants";
-import logo from "../assets/aquecedor-certo-logo.png";
+import { COMPANY_NAME, COMPANY_EMAIL, COMPANY_PHONE_1, COMPANY_PHONE_2, COMPANY_PHONE_RAW_1, COMPANY_PHONE_RAW_2 } from "../constants";
+import logo from "../assets/logoAquecedor.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -56,13 +56,13 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-6">Contato</h4>
             <ul className="space-y-4 text-slate-400">
-              <li className="flex items-start gap-3">
-                <span className="text-orange-500 font-bold">End:</span>
-                {COMPANY_ADDRESS}
-              </li>
+
               <li className="flex items-center gap-3">
                 <span className="text-orange-500 font-bold">Tel:</span>
-                {COMPANY_PHONE}
+                <div className="flex flex-col">
+                  <a href={`https://wa.me/${COMPANY_PHONE_RAW_1}`} target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors">{COMPANY_PHONE_1}</a>
+                  <a href={`https://wa.me/${COMPANY_PHONE_RAW_2}`} target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors">{COMPANY_PHONE_2}</a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-orange-500 font-bold">Mail:</span>

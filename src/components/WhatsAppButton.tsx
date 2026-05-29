@@ -1,11 +1,11 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
-import { COMPANY_PHONE_RAW } from "../constants";
+import { COMPANY_PHONE_RAW_1 } from "../constants";
 
 export default function WhatsAppButton() {
   return (
     <motion.a
-      href={`https://wa.me/${COMPANY_PHONE_RAW}`}
+      href={`https://wa.me/${COMPANY_PHONE_RAW_1}`}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
